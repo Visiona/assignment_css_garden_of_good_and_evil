@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const { allPersonas } = require('./models/personas');
+
 
 
 router.get('/', (req, res) => {

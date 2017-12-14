@@ -1,0 +1,7 @@
+const Calc = {};
+
+Calc.eq = (val1, val2) => {
+  return val1 == val2;
+};
+
+module.exports = Calc;

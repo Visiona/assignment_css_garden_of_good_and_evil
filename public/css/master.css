@@ -8,3 +8,55 @@ div.padder {
 div.center {
   text-align: center;
 }
+
+.evil {
+  color: #d62626;
+  background: #333;
+  font-family: 'Spectral SC', serif;
+}
+
+.good {
+  color: #333;
+  background: #d0f0f2;
+}
+
+.grid {
+  background-image: linear-gradient(white 2px, transparent 2px),
+  linear-gradient(90deg, white 2px, transparent 2px),
+  linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+  background-size:100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px
+}
+
+.green {
+  background-color:#5fa058;
+}
+
+.blue {
+  background-color:#269;
+}
+
+.red {
+  background-color:#c40000;
+}
+
+.yellow {
+  background-color:#f7f025;
+}
+
+.brown {
+  background-color:#d39126;
+}
+
+.shift {
+  height: 300px
+}
+canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 800px;
+}

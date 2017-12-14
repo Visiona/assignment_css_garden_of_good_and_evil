@@ -1,6 +1,6 @@
 # Personalized Express App - practicing with cookies
 
-The website is a single page that changes based on the values of user-configurable properties. Both the content and style of the page is dynamic, derived from these properties.
+The website is a single page that changes based on the values of user-configurable properties. Both the content and style of the page is dynamic, derived from these properties. 
 
 
 ## Getting Started
@@ -10,7 +10,6 @@ If you have [installed node](https://nodejs.org/en/download/) on your computer, 
 ```
 $ npm init
 $ npm install express --save
-$ npm run seed
 $ npm start
 ```
 

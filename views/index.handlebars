@@ -1,58 +1,106 @@
-<form>
+<form action='/persona' method="post">
 
   <fieldset class="form-group">
-    <label>Good or Evil?</label>
+    <label>Good or Evil? {{ character }}</label>
     <div class="form-check">
       <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="good" checked>
-        GOOD
+        <input type="radio" class="form-check-input" name="character" id="chcaracter-good" value="good"
+        {{#if (eq character 'good')}}
+           checked
+         {{/if}}>
+        Good
       </label>
     </div>
     <div class="form-check">
     <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="evil">
-        EVIL
+        <input type="radio" class="form-check-input" name="character" id="chcaracter-evil" value="evil"
+        {{#if (eq character "evil")}}
+           checked
+         {{/if}}>
+        Evil
       </label>
     </div>
   </fieldset>
 
   <div class="form-group">
     <label for="exampleTextarea">Favourite Food?</label>
-    <textarea class="form-control" id="exampleTextarea" rows="1"></textarea>
+    <textarea class="form-control" name='food' id="favourite-food" rows="1"
+    >{{#if food }}
+        {{ food }}
+        {{/if}}</textarea>
   </div>
 
   <div class="form-group">
     <label for="exampleSelect1">Favourite colour</label>
-    <select class="form-control" id="exampleSelect1">
-      <option vaule="green">Green</option>
-      <option vaule="blue">Blue</option>
-      <option vaule="red">Red</option>
-      <option vaule="yellow">Yellow</option>
-      <option vaule="brown">Brown</option>
+    <select class="form-control" id="favourite-colour" name="colour">
+      <option vaule="green"
+        {{#unless colour }}
+           selected
+         {{/unless}}>
+      </option>
+      <option vaule="green"
+        {{#if (eq colour "green")}}
+           selected
+         {{/if}}>Green
+      </option>
+      <option vaule="blue"
+        {{#if (eq colour "blue")}}
+           selected
+         {{/if}}>Blue</option>
+      <option vaule="red"
+        {{#if (eq colour "red")}}
+           selected
+         {{/if}}>Red</option>
+      <option vaule="yellow"
+        {{#if (eq colour "yellow")}}
+           selected
+         {{/if}}>Yellow</option>
+      <option vaule="brown"
+        {{#if (eq colour "brown")}}
+           selected
+         {{/if}}>Brown</option>
     </select>
   </div>
 
   <div class="form-group">
     <label for="exampleSelect1">Insanity Level</label>
-    <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14"/>
+    <input id="insanity-level" name="insanity" type="range" min="10" max="100" step="10" value="{{ insanity }}"/>
   </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary" method='post'>Submit</button>
+    <a href="/clear" class="btn">Reset</a>
+  </div>
 </form>
 
+<br><br>
+<!-- CONTENT -->
+<!-- LIKES/DISLIKES -->
+<div class={{ character }}>
 
-Likes and Dislikes
 
-Display two lists, one of likes, another of dislikes. The content and/or ordering of these lists should shift with the properties listed above. Clearly, favorite food and color deserve a cameo on the list of likes.
+<!-- BIO-->
 
-Biography
+<h3>Biography</h3>
 
-Let's build a life story for this configurable property-based persona. Be sure to touch on early childhood, education, and personal life. Don't forget to be weird—and, as always, be property-derived.
+{{#if (eq character 'evil')}}
+<img src="images/atilla.jpeg" alt="atilla">
 
-Resume
+<p>Attila ( 406–453), frequently referred to as Attila the Hun, was the ruler of the Huns from 434 until his death in March 453.</p>
+<p>He was also the leader of a tribal empire consisting of Huns, Ostrogoths, and Alans among others, on the territory of Central and Eastern Europe. </p>
+<p> Attila was Khan of the Huns. He is remembered as the epitome of cruelty and rapacity.</p>
+{{/if}}
 
-Generate us a list of jobs and core competencies for this configurable property—fashioned entity. What jobs might an evil persona have? What core competencies might be exhibited by someone who likes the color chartreuse?
+{{#if (eq character 'good')}}
+<img src="images/marcus.jpg" alt="marcus">
+<p>Marcus Aurelius (121 – 180) was one of the great 5 Roman Emperors. He is widely regarded to be the model for a just Roman ruler. </p>
+<p>He combined statesmanship with a profound interest in stoic philosophy. His meditations reflect his thoughts on self enquiry and self-improvement.</p>
+<p>“Waste no more time talking about great souls and how they should be. Become one yourself!”</p>
+{{/if}}
 
-Other Things!
+<!-- Resume -->
+{{#unless character }}
 
-You should get the gist by now. Please, feel free to add your own sections and make this your own. This project should be a pure expression of the configurable properties your parents chose at your birth.
+The website generates a list of jobs and core competencies for this configurable property—fashioned entity. What jobs might an evil persona have? What core competencies might be exhibited by someone who likes the color chartreuse?
+{{/unless}}
+</div>
